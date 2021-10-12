@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weberg Studios</title>
+  <link rel="icon" href="https://www.linkpicture.com/q/Logo_63.png">
+	<style>
+     body::-webkit-scrollbar {
+    width: .75rem;
+}
+*::-webkit-scrollbar-track {
+    background-color: #000;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 9999px;
+}
+body {
+    font-family: Agency FB;
+    font-size: 20px;
+}
+button {
+  width: 12%;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 100%;
+  font-family: Agency FB;
+  border:2px solid black;
+  background-color: #ddd;
+}
+		input[type = number] {
+  height: 20px;
+  width: 300px;
+  outline: none;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-color: black;
+  font-size: 20px;
+  font-family: Agency FB;
+}
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(https://media0.giphy.com/media/E4lfClpMIUFESPxXVB/giphy.gif?cid=790b7611fd9fed058a31465bcaa37f0a8ab104bd72f9bc1a&rid=giphy.gif&ct=g) center no-repeat #fff;
+}
+
+.context-menu {
+        position: absolute;
+        text-align: center;
+        background: #fff;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 0 0 30px grey;
+        font-size: 15px;
+    }
+  
+    .context-menu ul {
+        padding: 0px;
+        margin: 0px;
+        min-width: 150px;
+        list-style: none;
+    }
+  
+    .context-menu ul li {
+        padding-bottom: 7px;
+        padding-top: 7px;
+        border: 1px solid black;
+    }
+  
+    .context-menu ul li a {
+        text-decoration: none;
+        color: black;
+    }
+  
+    .context-menu ul li:hover {
+        background: darkgray;
+    }
+	</style>
+</head>
+<body>
+
+  <div id="contextMenu" class="context-menu" 
+    style="display: none">
+    <ul>
+        <li><a onclick="window.location.reload();">Refresh</a></li>
+        <li><a href="converter.html">Converter</a></li>
+        <li><a href="https://webergstudios.github.io/webergsearch">Home</a></li>
+    </ul>
+</div>
+
+
+</script>
+
+<script>
+  document.onclick = hideMenu;
+  document.oncontextmenu = rightClick;
+    
+  function hideMenu() {
+      document.getElementById("contextMenu")
+              .style.display = "none"
+  }
+
+  function rightClick(e) {
+      e.preventDefault();
+
+      if (document.getElementById("contextMenu")
+              .style.display == "block")
+          hideMenu();
+      else{
+          var menu = document.getElementById("contextMenu")
+
+          menu.style.display = 'block';
+          menu.style.left = e.pageX + "px";
+          menu.style.top = e.pageY + "px";
+      }
+  }
+
+  document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 85 || 
+             e.keyCode === 80 || 
+             e.keyCode === 18 ||
+             e.keyCode === 16 )) {
+            alert('You Are Not Allowed To View Page Source, Inspect Or Print This Page');
+            return false;
+        } else {
+            return true;
+        }
+};
+</script>
+
+
+    <img src="http://deelay.me/http://examplesite.com/image.gif" style="display:none;">
+
+    <div class="se-pre-con"></div>
+<center><h1 style="font-family: Agency FB;">Weberg Converter</h1><a href="#back"><button onclick="window.history.back()">Back</button></a>
+ <h2>Length Converter</h2></div>
+      <p>
+  <label>Meters</label>
+  <input id="inputMeters" type="number" placeholder="Meters" oninput="LengthConverter(this.value)" onchange="LengthConverter(this.value)">
+</p>
+<p>Kilometers: <span id="outputKilometers"></span></p>
+<p>Miles: <span id="outputMiles"></span></p>
+<p>Centimeter: <span id="outputCentimeters"></span></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script>
+$(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+function LengthConverter(valNum) {
+  document.getElementById("outputKilometers").innerHTML=valNum/1000;
+  document.getElementById("outputMiles").innerHTML=valNum*0.00062137;
+  document.getElementById("outputCentimeters").innerHTML=valNum/0.01;
+}
+</script><br>
+  <label>Kilometers</label>
+  <input id="inputKilometers" type="number" placeholder="Kilometers" oninput="LengthConverter2(this.value)" onchange="LengthConverter2(this.value)">
+</p>
+<p>Meters: <span id="outputMeters2"></span></p>
+<p>Miles: <span id="outputMiles2"></span></p>
+<p>Centimeter: <span id="outputCentimeters2"></span></p>
+<script>
+function LengthConverter2(valNum) {
+  document.getElementById("outputMeters2").innerHTML=valNum*1000;
+  document.getElementById("outputMiles2").innerHTML=valNum*0.62137;
+  document.getElementById("outputCentimeters2").innerHTML=valNum*100000;
+}
+</script><br>
+  <label>Miles</label>
+  <input id="inputMiles" type="number" placeholder="Miles" oninput="LengthConverter3(this.value)" onchange="LengthConverter3(this.value)">
+</p>
+<p>Meters: <span id="outputMeters3"></span></p>
+<p>Kilometers: <span id="outputKilometers3"></span></p>
+<p>Centimeter: <span id="outputCentimeters3"></span></p>
+<script>
+function LengthConverter3(valNum) {
+  document.getElementById("outputMeters3").innerHTML=valNum/0.00062137;
+  document.getElementById("outputKilometers3").innerHTML=valNum/0.62137;
+  document.getElementById("outputCentimeters3").innerHTML=valNum/0.0000062137;
+}
+</script><br>
+  <label>Centimeters</label>
+  <input id="inputCentimeters" type="number" placeholder="Centimeters" oninput="LengthConverter5(this.value)" onchange="LengthConverter5(this.value)">
+</p>
+<p>Meters: <span id="outputMeters5"></span></p>
+<p>Miles: <span id="outputMiles5"></span></p>
+<p>Centimeter: <span id="outputKilometers5"></span></p>
+<script>
+function LengthConverter5(valNum) {
+  document.getElementById("outputMeters5").innerHTML=valNum/100;
+  document.getElementById("outputMiles5").innerHTML=valNum*0.0000062137;
+  document.getElementById("outputKilometers5").innerHTML=valNum/100000;
+}
+</script>
+<h2>Weight Converter</h2>
+<br>
+  <label>Kilogram</label>
+  <input id="inputKilogram" type="number" placeholder="Kilogram" oninput="LengthConverter4(this.value)" onchange="LengthConverter4(this.value)">
+</p>
+<p>Gram: <span id="outputGram4"></span></p>
+<script>
+function LengthConverter4(valNum) {
+  document.getElementById("outputGram4").innerHTML=valNum*1000;
+}
+</script><br>
+  <label>Gram</label>
+  <input id="inputGram" type="number" placeholder="Gram" oninput="LengthConverter6(this.value)" onchange="LengthConverter6(this.value)">
+</p>
+<p>Kilogram: <span id="outputKilogram6"></span></p>
+<script>
+function LengthConverter6(valNum) {
+  document.getElementById("outputKilogram6").innerHTML=valNum/1000;
+}
+</script>
+<h2>Temperature Converter</h2>
+<br>
+  <label>Celsius</label>
+  <input id="inputCelsius" type="number" placeholder="Celsius" oninput="LengthConverter7(this.value)" onchange="LengthConverter7(this.value)">
+</p>
+<p>Fahrenheit: <span id="outputFahrenheit7"></span></p>
+<p>Kelvin: <span id="outputKelvin7"></span></p>
+<script>
+function LengthConverter7(valNum) {
+    valNum = parseFloat(valNum);
+  document.getElementById("outputFahrenheit7").innerHTML=(valNum*1.8)+32;
+  document.getElementById("outputKelvin7").innerHTML=valNum+273.15;
+}
+</script><br>
+  <label>Fahrenheit</label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" oninput="LengthConverter8(this.value)" onchange="LengthConverter8(this.value)">
+</p>
+<p>Celsius: <span id="outputCelsius8"></span></p>
+<p>Kelvin: <span id="outputKelvin8"></span></p>
+<script>
+function LengthConverter8(valNum) {
+  document.getElementById("outputCelsius8").innerHTML=(valNum-32)/1.8;
+  document.getElementById("outputKelvin8").innerHTML=((valNum-32)/1.8)+273.15;
+}
+</script><br>
+  <label>Kelvin</label>
+  <input id="inputKelvin" type="number" placeholder="Kelvin" oninput="LengthConverter9(this.value)" onchange="LengthConverter9(this.value)">
+</p>
+<p>Celsius: <span id="outputCelsius9"></span></p>
+<p>Fahrenheit: <span id="outputFahrenheit9"></span></p>
+<script>
+function LengthConverter9(valNum) {
+  document.getElementById("outputCelsius9").innerHTML=valNum-273.15;
+  document.getElementById("outputFahrenheit9").innerHTML=((valNum-273.15)*1.8)+32;
+}
+</script><h2>Speed Converter</h2><br>
+  <label>m/s</label>
+  <input id="inputm/s" type="number" placeholder="m/s" oninput="LengthConverter10(this.value)" onchange="LengthConverter10(this.value)">
+</p>
+<p>km/h: <span id="outputkm/h10"></span></p>
+<p>mi/h: <span id="outputmi/h10"></span></p>
+
+<script>
+function LengthConverter10(valNum) {
+  document.getElementById("outputkm/h10").innerHTML=valNum*3.6;
+  document.getElementById("outputmi/h10").innerHTML=valNum*2.23693629;;
+}
+</script><br>
+  <label>km/h</label>
+  <input id="inputkm/h" type="number" placeholder="km/h" oninput="LengthConverter11(this.value)" onchange="LengthConverter11(this.value)">
+</p>
+<p>m/s: <span id="outputm/s11"></span></p>
+<p>mi/h: <span id="outputmi/h11"></span></p>
+
+<script>
+function LengthConverter11(valNum) {
+  document.getElementById("outputm/s11").innerHTML=valNum/3.6;
+  document.getElementById("outputmi/h11").innerHTML=valNum/1.609344;
+}
+</script><br>
+  <label>mi/h</label>
+  <input id="inputmi/h" type="number" placeholder="mi/h" oninput="LengthConverter12(this.value)" onchange="LengthConverter12(this.value)">
+</p>
+<p>km/h: <span id="outputkm/h12"></span></p>
+<p>m/s: <span id="outputm/s12"></span></p>
+
+<script>
+function LengthConverter12(valNum) {
+  document.getElementById("outputkm/h12").innerHTML=valNum*1.609344;
+  document.getElementById("outputm/s12").innerHTML=valNum/2.23693629;
+}
+</script>
+<br><br>
+</center>
+</body>
+</html>

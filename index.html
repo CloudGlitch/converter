@@ -183,6 +183,13 @@ button {
 <p>Kilometers: <span id="outputKilometers"></span></p>
 <p>Miles: <span id="outputMiles"></span></p>
 <p>Centimeter: <span id="outputCentimeters"></span></p><br>
+	<script>
+	function LengthConverter(valNum) {
+  document.getElementById("outputKilometers").innerHTML=valNum/1000;
+  document.getElementById("outputMiles").innerHTML=valNum*0.00062137;
+  document.getElementById("outputCentimeters").innerHTML=valNum/0.01;
+}
+	</script>
   <label>Kilometers</label>
   <input id="inputKilometers" type="number" placeholder="Kilometers" oninput="LengthConverter2(this.value)" onchange="LengthConverter2(this.value)">
 </p>
